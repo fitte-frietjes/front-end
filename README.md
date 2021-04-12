@@ -3,6 +3,31 @@ The front-end for the fitte frietjes app.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## config file
+
+The .env-cmdrc is the config file with multiple environments.
+
+
+## folders (best practices)
+
+Evert model/page has its own folder in the components folder
+
+## External libs
+
+### SCSS
+Allow use of SCSS instead of vanilla CSS.
+
+Allows cleaner and easier to maintain style files.
+
+### Axios
+"Promise based HTTP client for the browser and node.js."
+
+Promise based keeps code clean.
+
+### env-cmd
+Allows us to use a config file
+
+
 ## Available Scripts
 
 In the project directory, you can run:
