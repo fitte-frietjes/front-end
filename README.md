@@ -7,7 +7,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 The .env-cmdrc is the config file with multiple environments.
 
-
 ## folders (best practices)
 
 Evert model/page has its own folder in the components folder
@@ -26,7 +25,6 @@ Promise based keeps code clean.
 
 ### env-cmd
 Allows us to use a config file
-
 
 ## Available Scripts
 
