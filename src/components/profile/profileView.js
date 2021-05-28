@@ -1,5 +1,6 @@
 import api from '../../services/api';
 import React from 'react';
+import Moment from 'react-moment';
 
 class ProfileView extends React.Component {
 
@@ -31,6 +32,7 @@ class ProfileView extends React.Component {
 
     render() {
         const { profile, account } = this.state;
+
         return (
             <div className="profileView">
                 <div className="info">
@@ -45,23 +47,20 @@ class ProfileView extends React.Component {
                         </tr>
                         <tr>
                             <td>dateOfBirth</td>
-                            <td>{profile.dateOfBirth}</td>
+                            <td><Moment format="DD-MM-YYYY">{profile.dateOfBirth}</Moment></td>
                         </tr>
-
                         <tr>
                             <td>length</td>
-                            <td>{profile.length}</td>
+                            <td>{profile.length} m</td>
                         </tr>
 
                         <tr>
                             <td>weight</td>
-                            <td>{profile.weight}</td>
+                            <td>{profile.weight} kg</td>
                         </tr>
                         <tr>
                             <td>desiredWeight</td>
-                            <td>
-                                <Moment>{profile.desiredWeight}</Moment>
-                            </td>
+                            <td>{profile.desiredWeight} kg</td>
                         </tr>
                         <tr>
                             <td>bmi</td>
