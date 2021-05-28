@@ -16,17 +16,17 @@ function App() {
         </header>
 
         <div className="menu">
-          <Link to="/">
+          <Link exact={true} activeClassName="active" to="/">
             <div className="btn">Home</div>
           </Link>
-          <Link to="/profile/1">
+          <Link activeClassName="active" to="/profile/1">
             <div className="btn">Profile</div>
           </Link>
         </div>
         <div className="content-wrapper">
           <Switch>
             <Route path="/profile/:id" component={profileView} />
-            <Route exact path="/" component={welcomePage} />
+            <Route exact path="" component={welcomePage} />
           </Switch>
         </div>
       </div>

@@ -34,7 +34,7 @@ class ProfileView extends React.Component {
         const { profile, account } = this.state;
 
         return (
-            <div className="profileView">
+            <div className="container profileView">
                 <div className="info">
                     <table>
                         <tr>

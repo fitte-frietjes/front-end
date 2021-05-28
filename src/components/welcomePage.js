@@ -1,6 +1,6 @@
 const WelcomePage = () => {
     return (
-        <div>
+        <div className="container">
             <span>
                 Welcome to the FitteFrietjes app (home)
             </span>
