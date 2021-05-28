@@ -1,18 +1,36 @@
 import './style.scss';
-import ProfileWelcomeMsg from './components/profile/welcome'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { NavLink as Link } from 'react-router-dom'
+import profileView from './components/profile/profileView'
+import welcomePage from './components/welcomePage'
 
 function App() {
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Fitte Frietjes FRONTEND!!
-        </p>
+    <Router>
+      <div className="App">
+        <header className="header">
+          <span>FITTE FRIETJES</span>
+        </header>
 
-        <ProfileWelcomeMsg />
-
-      </header>
-    </div>
+        <div className="menu">
+          <Link to="/">
+            <div className="btn">Home</div>
+          </Link>
+          <Link to="/profile/1">
+            <div className="btn">Profile</div>
+          </Link>
+        </div>
+        <div className="content-wrapper">
+          <Switch>
+            <Route path="/profile/:id" component={profileView} />
+            <Route exact path="/" component={welcomePage} />
+          </Switch>
+        </div>
+      </div>
+    </Router>
   );
 }
 

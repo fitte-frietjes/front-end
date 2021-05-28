@@ -1,41 +1,10 @@
-.App {
-    text-align: center;
-}
-
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
-
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-}
-
-.App-link {
-    color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
+$color-1: #eaeaea;
+$color-2: #c0d6df;
+$color-3: #4f6d7a;
+$color-4: #e8dab2;
+$color-5: #dd6e42;
+$border: #3e3e3e;
+$shadow: #757575;
 
 body {
     margin: 0;
@@ -45,6 +14,62 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+header {
+    background-color: $color-5;
+    height: 85px;
+    padding-left: 5px;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.menu {
+    background: $color-3;
+    width: 100%;
+    height: 50px;
+    display: block;
+    display: flex;
+    justify-content: center;
+    .btn {
+        width: 180px;
+        padding: 5px;
+        margin: 5px;
+        text-align: center;
+        background-color: $color-2;
+        border: 1px solid $border;
+        border-radius: 3px;
+        cursor: pointer;
+        filter: drop-shadow(2px 2px 3px $shadow);    
+    }
+}
+
+.content-wrapper {
+    width: 100%;
+    height: calc(100% - 135px);
+    position: absolute;
+    display: block;
+    background-color: $color-1;
+
+    div {
+        background: $color-2;
+        width: 80%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: calc(100%);
+        filter: drop-shadow(2px 2px 3px $shadow);
+    }
+}
+
+.profileView {
+    .info{
+        table{
+            table-layout: fixed;
+            width: 300px; 
+            border-collapse: collapse;
+            td{           
+                border: 1px solid $border;
+            }
+        }
+    }
 }
