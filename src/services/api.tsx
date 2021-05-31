@@ -1,12 +1,10 @@
 import axios from 'axios'
 
-const baseURL = process.env.REACT_APP_API_URL;
-
 // Get call
 const getCall = (url: string) => {
     return axios({
         'method': 'GET',
-        'url': baseURL + url,
+        'url': '/api' + url,
         'headers': {
             'Accept': 'application/json',
         }
@@ -17,9 +15,23 @@ const getCall = (url: string) => {
 const postCall = (url: string, body: string) => {
     return axios({
         'method': 'POST',
-        'url': baseURL + url,
+        'url': '/api' + url,
         'headers': {
-            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        'data': body
+    })
+}
+
+// Delete call
+const deleteCall = (url: string, body: string) => {
+    return axios({
+        'method': 'DELETE',
+        'url': '/api' + url,
+        'headers': {
+          //  'Accept': '*/*',
+            'Content-Type': 'application/json',
+          //  'Access-Control-Allow-Origin': '*'
         },
         'data': body
     })
@@ -27,7 +39,8 @@ const postCall = (url: string, body: string) => {
 
 const api = {
     get: getCall,
-    post: postCall
+    post: postCall,
+    delete: deleteCall
 }
 
 export default api;

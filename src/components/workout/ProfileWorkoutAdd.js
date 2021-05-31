@@ -32,7 +32,7 @@ class ProfileWorkoutAdd extends React.Component {
         event.preventDefault();
 
         const { workout, duration, profileId } = this.state;
-        
+
         // Submit
         let body = {
             "id": "",
@@ -44,11 +44,10 @@ class ProfileWorkoutAdd extends React.Component {
         // Post, on success redirect page back
         api.post('/workout/profileWorkout', body)
             .then((resp) => {
-                console.log(resp);
-                //
+                this.props.history.push(`/workouts/${profileId}`) // GOTO page!
             }).catch((resp) => {
                 console.warn(resp)
-            });     
+            });
     }
 
     handleChange(event) {
@@ -66,15 +65,31 @@ class ProfileWorkoutAdd extends React.Component {
         return (
             <div className="container workoutAddView">
                 <form onSubmit={this.handleSubmit}>
-                    <select name="workout" onChange={this.handleChange.bind(this)}>
-                        {
-                            workouts && workouts.map(item => {
-                                return (<option key={item.id} value={item.id}>{item.name}</option>)
-                            })
-                        }
-                    </select>
-                    <input type="number" name="duration" onChange={this.handleChange.bind(this)} />
-                    <input type="submit" value="Submit" />
+                    <table>
+                        <tr>
+                            <td>Workout</td>
+                            <td>
+                                <select name="workout" onChange={this.handleChange.bind(this)}>
+                                    {
+                                        workouts && workouts.map(item => {
+                                            return (<option key={item.id} value={item.id}>{item.name}</option>)
+                                        })
+                                    }
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Duration (min)</td>
+                            <td>
+                                <input type="number" name="duration" onChange={this.handleChange.bind(this)} />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" value="Submit" />
+                            </td>
+                        </tr>
+                    </table>
                 </form>
             </div >
         )

@@ -54,6 +54,18 @@ a {
     }
 }
 
+.btnOption {
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    background-color: $color-5;
+    border: 1px solid $border;
+    border-radius: 3px;
+    cursor: pointer;
+    filter: drop-shadow(2px 2px 3px $shadow);
+    line-height: 50px;
+}
+
 .content-wrapper {
     width: 100%;
     height: calc(100% - 135px);
@@ -94,38 +106,31 @@ a {
         border-collapse: collapse;
         td {
             border: 1px solid $border;
+
+            &:nth-child(6) {
+                text-align: center;
+            }
+        }
+
+        th:nth-child(2),
+        th:nth-child(3),
+        th:nth-child(4),
+        th:nth-child(5) {
+            width: 180px;
+        }
+
+        th:nth-child(6) {
+            width: 70px;
         }
     }
     .options {
         margin-top: 15px;
         border-top: 1px solid $shadow;
-        span {
-            padding: 5px;
-            margin: 5px;
-            text-align: center;
-            background-color: $color-5;
-            border: 1px solid $border;
-            border-radius: 3px;
-            cursor: pointer;
-            filter: drop-shadow(2px 2px 3px $shadow);
-            line-height: 50px;
-        }
     }
 }
 
-.workoutAddView{
-    .options {
-        margin-top: 15px;
-        span {
-            padding: 5px;
-            margin: 5px;
-            text-align: center;
-            background-color: $color-5;
-            border: 1px solid $border;
-            border-radius: 3px;
-            cursor: pointer;
-            filter: drop-shadow(2px 2px 3px $shadow);
-            line-height: 50px;
-        }
+.workoutAddView {
+    table {
+        padding: 10px;
     }
 }

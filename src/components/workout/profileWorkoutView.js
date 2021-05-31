@@ -12,9 +12,11 @@ class ProfileWorkoutView extends React.Component {
         };
     }
 
-    componentDidMount() {
-
+    loadProfileWorkouts(){
         const { profileId } = this.state;
+        this.setState({
+            workouts: [] // Clear all workouts
+        });
 
         // First all workouts for profile
         api.get(`/workout/profileWorkout/profile/${profileId}`)
@@ -22,6 +24,19 @@ class ProfileWorkoutView extends React.Component {
                 this.setState({
                     workouts: response.data,
                 });
+            }).catch((error) => {
+                console.warn(error);
+            })
+    }
+
+    componentDidMount() {
+        this.loadProfileWorkouts();
+    }
+
+    deleteProfileWorkout(pw) {
+        api.delete('/workout/profileWorkout', pw)
+            .then((response) => {
+                this.loadProfileWorkouts();
             }).catch((error) => {
                 console.warn(error);
             })
@@ -40,6 +55,7 @@ class ProfileWorkoutView extends React.Component {
                             <th>Level</th>
                             <th>Category</th>
                             <th>Duration (min)</th>
+                            <th>Options</th>
                         </tr>
                         {
                             workouts && workouts.map(item => {
@@ -50,6 +66,7 @@ class ProfileWorkoutView extends React.Component {
                                         <td>{item.workout.level}</td>
                                         <td>{item.workout.category}</td>
                                         <td>{(item.duration / 60).toFixed(2)}</td>
+                                        <td><span className="btnOption" onClick={() => { this.deleteProfileWorkout(item) }}>delete</span></td>
                                     </tr>
                                 )
                             })
@@ -58,7 +75,7 @@ class ProfileWorkoutView extends React.Component {
                 </div>
                 <div className="options">
                     <Link to={`/workouts/add/${profileId}`}>
-                        <span>Add new workout</span>
+                        <span className="btnOption">Add new workout</span>
                     </Link>
                 </div>
             </div>
