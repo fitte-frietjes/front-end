@@ -5,12 +5,15 @@ import welcomePage from './components/welcomePage'
 import profileView from './components/profile/profileView'
 import ProfileWorkoutView from './components/workout/profileWorkoutView'
 import ProfileWorkoutAdd from './components/workout/ProfileWorkoutAdd'
+import 'react-notifications/lib/notifications.css';
+import { NotificationContainer } from 'react-notifications';
 
 function App() {
 
   return (
     <Router>
       <div className="App">
+        <NotificationContainer />
         <header className="header">
           <span>FITTE FRIETJES</span>
         </header>

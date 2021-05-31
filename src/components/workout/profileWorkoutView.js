@@ -1,6 +1,9 @@
 import api from '../../services/api';
 import React from 'react';
 import { NavLink as Link } from 'react-router-dom'
+import { NotificationManager } from 'react-notifications';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 class ProfileWorkoutView extends React.Component {
 
@@ -12,7 +15,7 @@ class ProfileWorkoutView extends React.Component {
         };
     }
 
-    loadProfileWorkouts(){
+    loadProfileWorkouts() {
         const { profileId } = this.state;
         this.setState({
             workouts: [] // Clear all workouts
@@ -25,7 +28,9 @@ class ProfileWorkoutView extends React.Component {
                     workouts: response.data,
                 });
             }).catch((error) => {
-                console.warn(error);
+                NotificationManager.error('Error encountered, click me to see error', 'Error!', 5000, () => {
+                    alert(error);
+                })
             })
     }
 
@@ -33,14 +38,44 @@ class ProfileWorkoutView extends React.Component {
         this.loadProfileWorkouts();
     }
 
+
+
+
     deleteProfileWorkout(pw) {
-        api.delete('/workout/profileWorkout', pw)
-            .then((response) => {
-                this.loadProfileWorkouts();
-            }).catch((error) => {
-                console.warn(error);
-            })
+        console.warn(pw);
+
+        const handleClose = () => {
+            console.log('Nah, dan toch niet');
+        }
+
+        const handleDelete = () => {
+            api.delete('/workout/profileWorkout', pw)
+                .then((response) => {
+                    NotificationManager.success('Workout deleted', 'Success');
+                    this.loadProfileWorkouts();
+                }).catch((error) => {
+                    NotificationManager.error('Error encountered, click me to see error', 'Error!', 5000, () => {
+                        alert(error);
+                    })
+                })
+        }
+
+        confirmAlert({
+            title: `Delete workout?`,
+            message: `Are you sure you want to delete "${pw.workout.name}"?`,
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => handleDelete()
+                },
+                {
+                    label: 'No',
+                    onClick: () => handleClose()
+                }
+            ],
+        })
     }
+
 
     render() {
         const { workouts, profileId } = this.state;

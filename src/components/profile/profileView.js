@@ -1,6 +1,7 @@
 import api from '../../services/api';
 import React from 'react';
 import Moment from 'react-moment';
+import { NotificationManager } from 'react-notifications';
 
 class ProfileView extends React.Component {
 
@@ -25,7 +26,9 @@ class ProfileView extends React.Component {
                     account: response.data.account
                 });
             }).catch((error) => {
-                console.warn(error);
+                NotificationManager.error('Error encountered, click me to see error', 'Error!', 5000, () => {
+                    alert(error);
+                })
             })
     }
 

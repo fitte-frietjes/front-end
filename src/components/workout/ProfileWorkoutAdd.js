@@ -1,6 +1,7 @@
 import api from '../../services/api';
 import React from 'react';
 import { NavLink as Link } from 'react-router-dom'
+import { NotificationManager } from 'react-notifications';
 
 class ProfileWorkoutAdd extends React.Component {
 
@@ -44,9 +45,12 @@ class ProfileWorkoutAdd extends React.Component {
         // Post, on success redirect page back
         api.post('/workout/profileWorkout', body)
             .then((resp) => {
+                NotificationManager.success('Workout added to profile ', 'Success');
                 this.props.history.push(`/workouts/${profileId}`) // GOTO page!
-            }).catch((resp) => {
-                console.warn(resp)
+            }).catch((error) => {
+                NotificationManager.error('Error encountered, click me to see error', 'Error!', 5000, () => {
+                    alert(error);
+                })
             });
     }
 
