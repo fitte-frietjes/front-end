@@ -24,7 +24,6 @@ class ProfileView extends React.Component {
                     profile: response.data,
                     account: response.data.account
                 });
-                console.warn(response.data);
             }).catch((error) => {
                 console.warn(error);
             })

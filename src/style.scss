@@ -24,6 +24,11 @@ header {
     line-height: 40px;
 }
 
+a {
+    text-decoration: none;
+    color: $black;
+}
+
 .menu {
     background: $color-3;
     width: 100%;
@@ -42,13 +47,9 @@ header {
         cursor: pointer;
         filter: drop-shadow(2px 2px 3px $shadow);
     }
-    a {
-        text-decoration: none;
-        color: $black;
-        &.active {
-            .btn {
-                background-color: $color-5;
-            }
+    a.active {
+        .btn {
+            background-color: $color-5;
         }
     }
 }
@@ -81,6 +82,50 @@ header {
             td {
                 border: 1px solid $border;
             }
+        }
+    }
+}
+
+.workoutView {
+    table {
+        width: 90%;
+        margin: auto;
+        table-layout: fixed;
+        border-collapse: collapse;
+        td {
+            border: 1px solid $border;
+        }
+    }
+    .options {
+        margin-top: 15px;
+        border-top: 1px solid $shadow;
+        span {
+            padding: 5px;
+            margin: 5px;
+            text-align: center;
+            background-color: $color-5;
+            border: 1px solid $border;
+            border-radius: 3px;
+            cursor: pointer;
+            filter: drop-shadow(2px 2px 3px $shadow);
+            line-height: 50px;
+        }
+    }
+}
+
+.workoutAddView{
+    .options {
+        margin-top: 15px;
+        span {
+            padding: 5px;
+            margin: 5px;
+            text-align: center;
+            background-color: $color-5;
+            border: 1px solid $border;
+            border-radius: 3px;
+            cursor: pointer;
+            filter: drop-shadow(2px 2px 3px $shadow);
+            line-height: 50px;
         }
     }
 }
