@@ -93,7 +93,31 @@ a {
             border-collapse: collapse;
             td {
                 border: 1px solid $border;
+                &:nth-child(2){
+                    font-weight: bolder;
+                }
             }
+        }
+    }
+
+    .steps {
+        margin-top: 20px;
+        width: 300px;
+        border: 1px solid $border;
+        .step {
+            margin-left: 5px;
+            font-weight: bolder;
+        }
+    }
+
+    .snack {
+        margin-top: 20px;
+        position: absolute;
+        border: 1px solid $border;
+        width: 480px;
+        .name{
+            margin-left: 5px;
+            font-weight: bolder;
         }
     }
 }
