@@ -44,31 +44,41 @@ class ProfileView extends React.Component {
                             <td>{account.name}</td>
                         </tr>
                         <tr>
-                            <td>email</td>
+                            <td>Email</td>
                             <td>{account.email}</td>
                         </tr>
                         <tr>
-                            <td>dateOfBirth</td>
+                            <td>Date of birth</td>
                             <td><Moment format="DD-MM-YYYY">{profile.dateOfBirth}</Moment></td>
                         </tr>
                         <tr>
-                            <td>length</td>
+                            <td>Length</td>
                             <td>{profile.length} m</td>
                         </tr>
 
                         <tr>
-                            <td>weight</td>
+                            <td>Weight</td>
                             <td>{profile.weight} kg</td>
                         </tr>
                         <tr>
-                            <td>desiredWeight</td>
+                            <td>Desired weight</td>
                             <td>{profile.desiredWeight} kg</td>
                         </tr>
                         <tr>
-                            <td>bmi</td>
+                            <td>BMI</td>
                             <td>{profile.bmi}</td>
                         </tr>
                     </table>
+                </div>
+                <div className="steps">
+                    <span>Total steps:</span>
+                    <span className="step">88031</span>
+                </div>
+                
+                <div className="snack">
+                    <span>Favorite snack:</span>
+                    <span className="name"> Bitterbal</span><br/>
+                    <img src="/snack.jpg" alt="bitterbal" />
                 </div>
             </div>
 
